@@ -5,9 +5,10 @@
     <meta name="description" content="Our first page" />
     <meta name="keywords" content="html tutorial template" />
   </head>
-  <button type="button" onclick="document.this.innerHTML = 1">0</button>
+  <button onclick="buttonClick()">drawPile</button>
   <body>
     <h1>Hello world!</h1>
+    <p id="demo"></p>
     <p>
       <script>
         class Card {
@@ -51,7 +52,7 @@
           }
 
           printData() {
-            console.log(
+            return(
               `Array Name: ${this.arrayName}, Card Number: ${this.cardNumber}, Card Color: ${this.cardColor}, Card Suit: ${this.cardSuit}`
             );
           }
@@ -84,6 +85,7 @@
             for (let i = 0; i < 7; i++) {
               this.cardLines[i].push(placeholder);
             }
+
             for (let i = 0; i < 4; i++) {
               this.completePile[i].push(placeholder);
             }
@@ -93,6 +95,7 @@
             const index = oldArray.findIndex(
               (card) => card.getCardNumber() === cardNumber
             );
+
             if (index !== -1) {
               newArray.unshift(oldArray[index]);
               oldArray[index] = new Card("", null, "", "");
@@ -122,6 +125,7 @@
               (pile) =>
                 pile.length > 0 && pile[0].getCardSuit() === card.getCardSuit()
             );
+            
             if (completePileIndex !== -1) {
               const topCard = this.completePile[completePileIndex][0];
               if (card.getCardNumber() === topCard.getCardNumber() + 1) {
@@ -141,14 +145,14 @@
             }
           }
           createBoard() {
-            //prints out all card data for each card in the drawPile
-            for (
-              let arrayIndex = 0;
-              arrayIndex < this.drawPile.length;
-              arrayIndex++
-            ) {
-              console.log(this.drawPile[arrayIndex].printData());
-            }
+            //prints out all card data for each car in the drawPile
+            //for (
+              //let arrayIndex = 0;
+              //arrayIndex < this.drawPile.length;
+              //arrayIndex++
+            //) {
+              console.log(this.drawPile[0].printData());
+            //}
           }
           shuffleArray(DrawPile) {
             //takes all objects in the draw pile and changes where they are in the index of drawPile
@@ -160,9 +164,15 @@
             return DrawPile;
           }
         }
+        
+        function buttonClick(){
+          document.getElementById("demo").innerHTML = solitaire.drawPile[0].printData();
+        }
+        
         const solitaire = new Solitaire();
         solitaire.shuffleArray(solitaire.drawPile);
         solitaire.createBoard();
+
       </script>
     </p>
 
