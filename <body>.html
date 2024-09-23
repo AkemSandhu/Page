@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Games</title>
+    <meta name="description" content="Our first page" />
+    <meta name="keywords" content="html tutorial template" />
+  </head>
+  <button onclick="buttonClick()">drawPile</button>
+  <div class='drawPile'>
+    <input onclick="drawPileClick()" type="button" value="hiddenCard" id="drawPileID"></input>
+  </div>
+  <div class='discardPile'>
+    <input onclick="discardPileClick()" type="button" value="empty" id="discardPileID"></input>
+  </div>
+  <style>
+    .drawPile{
+        position: absolute;
+        top:100px;
+        left: 85px          
+    }
+    .discardPile{
+        position: absolute;
+        top:125px;
+        left: 85px          
+    }
+  </style>
+  <body>
+    <h1>Hello world!</h1>
+    <p id="demo"></p>
+    <p>
+      <script>
+        
+        class Card {
+          constructor(arrayName, cardNumber, cardColor, cardSuit) {
+            this.arrayName = arrayName;
+            this.cardNumber = cardNumber;
+            this.cardColor = cardColor;
+            this.cardSuit = cardSuit;
+          }
+
+          setArrayName(arrayName) {
+            this.arrayName = arrayName;
+          }
+
+          getArrayName() {
+            return this.arrayName;
+          }
+
+          setCardNumber(cardNumber) {
+            this.cardNumber = cardNumber;
+          }
+
+          getCardNumber() {
+            return this.cardNumber;
+          }
+
+          setCardColor(cardColor) {
+            this.cardColor = cardColor;
+          }
+
+          getCardColor() {
+            return this.cardColor;
+          }
+
+          setCardSuit(cardSuit) {
+            this.cardSuit = cardSuit;
+          }
+
+          getCardSuit() {
+            return this.cardSuit;
+          }
+
+          printData() {
+            return(
+              `Array: ${this.arrayName}, Card: ${this.cardNumber}, Color: ${this.cardColor}, Suit: ${this.cardSuit}`
+            );
+          }
+        }
+
+        class Solitaire {
+          constructor() {
+            this.drawPile = [];
+            this.discardPile = [];
+            this.cardLines = [Array.from({ length: 7 }, () => [])]; //seven card lines, where colors alternate
+            this.completePile = Array.from({ length: 4 }, () => []); //where cards go, starting at the ace, following suit
+            this.fillArray(); //creates all card objects and sends them to the drawPile array, in order
+            //this.makeArrays(); //bugged at the momment
+          }
+
+          fillArray() {
+            const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+            for (let suit of suits) {
+              for (let number = 1; number <= 13; number++) {
+                const color =
+                  suit === "Hearts" || suit === "Diamonds" ? "r" : "b";
+                this.drawPile.push(new Card("DrawPile", number, color, suit));
+              }
+            }
+          }
+
+          makeArrays() {
+            //might be bugged due to cardLines and completePile only having 7 and 4 entries of one object
+          
+            for (let i = 0; i < 7; i++) {
+           
+              for(let j = 0; j < i; j++){
+                this.cardLines[i].push(drawPile[0]);
+                drawPile.shift();
+              }
+              console.log(this.cardLines[i])
+            }
+          
+            for (let i = 0; i < 4; i++) {
+             
+            }
+          }
+
+          changeCardSpace(cardNumber, oldArray, newArray) {
+            const index = oldArray.findIndex(
+              (card) => card.getCardNumber() === cardNumber
+            );
+
+            if (index !== -1) {
+              newArray.unshift(oldArray[index]);
+              oldArray[index] = new Card("", null, "", "");
+              for (let i = oldArray.length - 1; i > 0; i--) {
+                oldArray[i] = oldArray[i - 1];
+              }
+              oldArray[0] = new Card("", null, "", "");
+            }
+          }
+
+          drawPileClick() {
+            if (this.drawPile.length > 0) {
+              const card = this.drawPile.shift();
+              this.discardPile.unshift(card);
+            }
+          }
+
+          discardPileClick() {
+            console.log(this.drawPile.length);
+          }
+
+          completePileClick(card) {
+            const completePileIndex = this.completePile.findIndex(
+              (pile) =>
+                pile.length > 0 && pile[0].getCardSuit() === card.getCardSuit()
+            );
+            
+            if (completePileIndex !== -1) {
+              const topCard = this.completePile[completePileIndex][0];
+              if (card.getCardNumber() === topCard.getCardNumber() + 1) {
+                this.completePile[completePileIndex].unshift(card);
+              }
+            }
+          }
+
+          cardLineClick(card, lineIndex) {
+            const line = this.cardLines[lineIndex];
+            const topCard = line[0];
+            if (
+              topCard.getCardColor() !== card.getCardColor() &&
+              topCard.getCardNumber() === card.getCardNumber() + 1
+            ) {
+              line.unshift(card);
+            }
+          }
+          createBoard() {
+            //prints out all card data for each car in the drawPile
+            //for (
+              //let arrayIndex = 0;
+              //arrayIndex < this.drawPile.length;
+              //arrayIndex++
+            //) {
+              
+            //}
+          }
+        }
+        
+        function buttonClick(){
+          document.getElementById("demo").innerHTML = solitaire.drawPile[0].printData();
+        }
+        function shuffle(array) {
+          for(var i = array.length; i > 1; i--) {
+            var r = Math.floor(Math.random() * i);
+            var temp = array[r];
+            array[r] = array[i-1];
+            array[i-1] = temp;
+            //console.log(array[i])
+          }
+        }
+        function drawPileClick() //flips card
+          {
+              document.getElementById("drawPileID").style.position = "absolute";
+              var elem = document.getElementById("drawPileID");
+              console.log(solitaire.drawPile[0].printData());
+              solitaire.drawPileClick();
+              document.getElementById("discardPileID").style.position = "absolute";
+              var elem = document.getElementById("discardPileID");
+              elem.value = solitaire.discardPile[0].printData();  
+              solitaire.discardPileClick();
+          }
+        function discardPileClick() //flips card
+        {
+            document.getElementById("discardPileID").style.position = "absolute";
+            var elem = document.getElementById("discardPileID");
+            elem.value = solitaire.discardPile[0].printData();  
+            solitaire.discardPileClick();
+        }
+        const solitaire = new Solitaire();
+        shuffle(solitaire.drawPile);
+        solitaire.createBoard();
+      </script>
+    </p>
+
+    <p></p>
+  </body>
+</html>
+<!---->
