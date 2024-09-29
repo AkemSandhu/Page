@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-   <title>BlackJack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+    <link rel="stylesheet" href="./Resources/CSS/blackjackStyle.css">
 </head>
 <body>
-<h2>Fake BlackJack</h2>
-<p id="money"></p>
-<button type="button"
-onclick="draw(player,deck); checkBust()">
-Hit</button>
-<button type="button"
-onclick="stand()">
-Stand</button>
-<p id="demo"></p>
-<p id="playerHand"></p>
-<p id="playerScore"></p>
-<p id="dealerHand"></p>
-<p id="dealerScore"></p>
-<p id="win"></p>
-<script src="./Resources/JS/blackjackScript.js"></script>
+    <div class="container">
+        <h2>Fake BlackJack</h2>
+        <p id="money"></p>
+        <div class="buttons">
+            <button type="button" onclick="draw(player, deck); checkBust()">Hit</button>
+            <button type="button" onclick="stand()">Stand</button>
+        </div>
+        <div class="hands">
+            <p id="playerHand"></p>
+            <p id="playerScore"></p>
+            <p id="dealerHand"></p>
+            <p id="dealerScore"></p>
+        </div>
+        <p id="win"></p>
+    </div>
+    <script src="./Resources/JS/blackjackScript.js"></script>
 </body>
 </html>
