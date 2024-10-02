@@ -1,4 +1,5 @@
-let money = 500;
+// Retrieve money from local storage or set default value
+let money = parseInt(localStorage.getItem('userMoney')) || 500; 
 document.getElementById('money').innerHTML = "Money: $" + money;
 let spinning = false;
 const possibleValues = [1, 2, 3, 4, 5, 6, 7];
@@ -13,7 +14,7 @@ function spin(bet) {
     spinning = true;
     mult = 1;
     money -= bet;
-    document.getElementById('money').innerHTML = "Money: $" + money;
+    updateMoneyDisplay();
 
     random(); // Start the random spinning animation
     setTimeout(() => {
@@ -54,7 +55,7 @@ function checkMatches(bet) {
     if (mult > 1) {
         money += mult * bet;
     }
-    document.getElementById('money').innerHTML = "Money: $" + money;
+    updateMoneyDisplay();
 }
 
 function highlightSevens() {
@@ -71,4 +72,9 @@ function random() {
             document.getElementById('slot3').innerHTML = Array.from({ length: 5 }, () => Math.ceil(Math.random() * 7)).join("  ");
         }, i * 75);
     }
+}
+
+function updateMoneyDisplay() {
+    localStorage.setItem('userMoney', money); // Update local storage
+    document.getElementById('money').innerHTML = "Money: $" + money;
 }

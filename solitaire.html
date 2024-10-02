@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <meta name="description" content="Our first page">
+    <meta name="keywords" content="html tutorial template">
+    <link rel="stylesheet" href="./Resources/CSS/solitaireStyle.css">
+</head>
+<body>
+    <div class="back-button">
+        <input type="button" value="Back to Home" onclick="location.href='index.html'" aria-label="Back to the home page">
+    </div>    
+    <div class='drawPile'>
+        <p>This is the draw pile; clicking on this will take a card and place it in the discard pile face up.</p>
+        <input type="button" value="Draw Card" id="drawPileID" onclick="drawPileClick()" aria-label="Draw a card from the draw pile">
+    </div>
+    <div class='discardPile'>
+        <p>This is the discard pile, showing the card you have available. Click to deselect it as the pile you get cards from.</p>
+        <input type="button" value="Empty" id="discardPileID" onclick="discardPileClick()" aria-label="Click to deselect the discard pile">
+    </div>
+    <div class='heartPile'>
+        <p>This is the heart pile. Place hearts here in ascending order from the discard pile.</p>
+        <input type="button" value="Heart Pile" id="heartPileID" onclick="heartPileClick()" aria-label="Place a heart card">
+    </div>
+    <div class='diamondPile'>
+        <p>This is the diamond pile. Place diamonds here in ascending order from the discard pile.</p>
+        <input type="button" value="Diamond Pile" id="diamondPileID" onclick="diamondPileClick()" aria-label="Place a diamond card">
+    </div>
+    <div class='clubPile'>
+        <p>This is the club pile. Place clubs here in ascending order from the discard pile.</p>
+        <input type="button" value="Club Pile" id="clubPileID" onclick="clubPileClick()" aria-label="Place a club card">
+    </div>
+    <div class='spadePile'>
+        <p>This is the spade pile. Place spades here in ascending order from the discard pile.</p>
+        <input type="button" value="Spade Pile" id="spadePileID" onclick="spadePileClick()" aria-label="Place a spade card">
+    </div>
+    <div class='cardLine1'>
+        <p>This is cardPile1</p>
+        <input type="button" value="Card Line 1" id="cardLine1ID" onclick="cardLine1Click()" aria-label="Select card line 1">
+    </div>
+    <div class='cardLine2'>
+        <p>This is cardPile2</p>
+        <input type="button" value="Card Line 2" id="cardLine2ID" onclick="cardLine2Click()" aria-label="Select card line 2">
+    </div>
+    <div class='cardLine3'>
+        <p>This is cardPile3</p>
+        <input type="button" value="Card Line 3" id="cardLine3ID" onclick="cardLine3Click()" aria-label="Select card line 3">
+    </div>
+    <div class='cardLine4'>
+        <p>This is cardPile4</p>
+        <input type="button" value="Card Line 4" id="cardLine4ID" onclick="cardLine4Click()" aria-label="Select card line 4">
+    </div>
+    <p>This is in progress and might not be finished.</p>
+    <script src="./Resources/JS/solitaireScript.js"></script>
+</body>
+</html>
+

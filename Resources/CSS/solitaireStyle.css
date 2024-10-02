@@ -1,0 +1,85 @@
+.drawPile, .discardPile, .heartPile, .diamondPile, .clubPile, .spadePile, .cardLine1, .cardLine2, .cardLine3, .cardLine4 {
+    border: 2px solid #f0e68c; /* Gold border */
+    background-color: rgba(0, 128, 0, 0.8); /* Dark green */
+    width: 320px;
+    height: 100px; /* Default height, overridden for specific piles */
+    position: absolute;
+}
+
+.drawPile {
+    height: 300px;
+    top: 100px;
+    left: 85px;         
+}
+
+.discardPile {
+    top: 100px;
+    left: 500px;         
+}
+
+.heartPile {
+    top: 100px;
+    left: 1000px;         
+}
+
+.diamondPile {
+    top: 250px;
+    left: 1000px;          
+}
+
+.clubPile {
+    top: 400px;
+    left: 1000px;           
+}
+
+.spadePile {
+    top: 550px;
+    left: 1000px;            
+}
+
+.cardLine1, .cardLine2 {
+    height: 80px;
+    top: 450px; /* For cardLine1 */
+}
+
+.cardLine1 {
+    left: 85px;            
+}
+
+.cardLine2 {
+    left: 500px;            
+}
+
+.cardLine3, .cardLine4 {
+    height: 80px;
+    top: 550px; /* For cardLine3 */
+}
+
+.cardLine3 {
+    left: 85px;            
+}
+
+.cardLine4 {
+    left: 500px;            
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button input {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff4757; /* Bright red */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.back-button input:hover {
+    background-color: #ff6b81; /* Lighter red */
+}
+

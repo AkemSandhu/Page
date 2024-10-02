@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker</title>
+    <link rel="stylesheet" href="./Resources/CSS/pokerStyle.css">
+</head>
+<body>
+    <div class="back-button">
+        <input type="button" value="Back to Home" onclick="location.href='index.html'" aria-label="Back to the home page">
+    </div>
+    <div class="container">
+        <h2>Inaccurate Poker</h2>
+
+        <div class="controls">
+            <button id="start" onclick="firstBet()">Start Game</button>
+            <div>
+                Bet <input type="number" min="20" id="betAmount">
+                <button id="confirmBet" onclick="secondBet()" disabled>Confirm Bet</button>
+                <button id="Fold" onclick="fold()">Fold</button>
+            </div>
+        </div>
+
+        <div class="info">
+            <p id="Money"></p>
+            <p id="pot"></p>
+            <p id="Win"></p>
+        </div>
+
+        <div class="hands">
+            <div class="hand" id="Player"></div>
+            <div class="hand" id="Middle"></div>
+            <div class="hand" id="Enemy 1"></div>
+            <div class="hand" id="Enemy 2"></div>
+            <div class="hand" id="Enemy 3"></div>
+        </div>
+
+        <button id="Back" onclick="back()">Back</button>
+    </div>
+
+    <script src="./Resources/JS/pokerScript.js"></script>
+</body>
+</html>

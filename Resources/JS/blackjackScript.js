@@ -1,5 +1,5 @@
-
-let money = 500;
+// Retrieve money from local storage or set default value
+let money = parseInt(localStorage.getItem('userMoney')) || 500; 
 let deck = [];
 let player = [];
 let dealer = [];
@@ -91,9 +91,10 @@ function shuffleArray(array) {
 }
 
 function updateMoney() {
+    localStorage.setItem('userMoney', money); // Update local storage
     document.getElementById('money').innerHTML = "Money: $" + money;
 }
 
 function faceCardReplace(str) {
-    return str.replace(/11/g, "J").replace(/12/g, "Q").replace(/13/g, "K").replace(/1/g, "A");
+    return str.replace(/11/g, "J").replace(/12/g, "Q").replace(/13/g, "K").replace(/1/g, "A").replace(/A0/g, "10");
 }

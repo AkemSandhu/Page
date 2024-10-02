@@ -3,60 +3,66 @@ body {
     background-color: #1c1c1c; /* Darker background */
     color: #f0e68c; /* Gold text */
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 .container {
-    width: 90%;
     max-width: 600px;
     margin: auto;
     text-align: center;
-    padding: 20px;
     background-color: rgba(34, 34, 34, 0.9); /* Dark with transparency */
     border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); /* Gold glow */
 }
 
-h2 {
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-#money {
-    font-size: 24px;
+.controls {
     margin-bottom: 20px;
 }
 
-.slots {
-    margin: 20px 0;
+.info {
+    font-size: 1.2em;
+    margin-bottom: 20px;
 }
 
-h3 {
-    font-size: 32px;
+.hands {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hand {
+    background-color: rgba(255, 0, 0, 0.7); /* Red with transparency */
     margin: 10px 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.buttons {
-    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 button {
-    background-color: #e74c3c; /* Red */
+    padding: 10px 15px;
     border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
     border-radius: 5px;
-    margin: 0 10px;
-    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: #e74c3c; /* Red */
+    color: white;
+    font-size: 1em;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #c0392b;
     transform: scale(1.05);
+}
+
+input[type="number"] {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .back-button {
@@ -78,3 +84,4 @@ button:hover {
 .back-button input:hover {
     background-color: #ff6b81; /* Lighter red */
 }
+

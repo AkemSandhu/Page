@@ -1,15 +1,19 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Verdana', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
-    color: #f1f1f1;
+    background-color: #0c0c0c; /* Dark background */
+    color: #f0e68c; /* Gold text */
+    background-image: url('casino-background.jpg'); /* Add a casino-themed background image */
+    background-size: cover;
+    background-blend-mode: multiply;
 }
 
 header {
-    background: #d9534f;
+    background: linear-gradient(135deg, #d9534f, #f9c74f); /* Gradient header */
     padding: 20px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 nav ul {
@@ -25,22 +29,25 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
+    color: #f9c74f; /* Gold on hover */
 }
 
 .hero {
     padding: 50px 20px;
     text-align: center;
-    background: #292b2c;
+    background: rgba(41, 43, 45, 0.9); /* Semi-transparent background */
+    border-radius: 10px;
 }
 
 footer {
     text-align: center;
     padding: 20px;
-    background: #d9534f;
+    background: linear-gradient(135deg, #d9534f, #f9c74f);
     position: relative;
     bottom: 0;
     width: 100%;
