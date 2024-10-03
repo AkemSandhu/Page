@@ -154,6 +154,14 @@ function shuffleArray(array) {
 function fold() {
     document.getElementById("start").disabled = false;
     document.getElementById("confirmBet").disabled = true;
+    showHand("Enemy 1", dealer1);
+    showHand("Enemy 2", dealer2);
+    showHand("Enemy 3", dealer3);
+    while(middle.length<5){
+        draw(middle,1);
+    }
+    showHand("Middle", middle);
+
 }
 
 // Displays hand based on id, and replaces things with letters

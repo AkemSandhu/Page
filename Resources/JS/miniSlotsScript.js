@@ -85,8 +85,8 @@ function roll(slotId) {
         setTimeout(() => {
             let slotIndex = numbers[Math.floor(Math.random() * numbers.length)];
             let slotChords = chords(slotIndex);
-            slotChords[0] *= -400;
-            slotChords[1] *= -400;
+            slotChords[0] *= -1000/9;
+            slotChords[1] *= -1000/9;
 
             slot.style.marginLeft = slotChords[0] + "px";
             slot.style.marginTop = slotChords[1] + "px";
@@ -96,16 +96,16 @@ function roll(slotId) {
     setTimeout(() => {
         if (win !== -1) {
             let slotChords = chords(numbers[win]);
-            slotChords[0] *= -400;
-            slotChords[1] *= -400;
+            slotChords[0] *= -1000/9;
+            slotChords[1] *= -1000/9;
 
             slot.style.marginLeft = slotChords[0] + "px";
             slot.style.marginTop = slotChords[1] + "px";
         } else if (sevenOne) {
             if (randomSlot1 === slotId) {
                 let slotChords = chords(0);
-                slotChords[0] *= -400;
-                slotChords[1] *= -400;
+                slotChords[0] *= -1000/9;
+                slotChords[1] *= -1000/9;
 
                 slot.style.marginLeft = slotChords[0] + "px";
                 slot.style.marginTop = slotChords[1] + "px";
@@ -113,8 +113,8 @@ function roll(slotId) {
         } else if (sevenTwo) {
             if (randomSlot1 === slotId || randomSlot2 === slotId) {
                 let slotChords = chords(0);
-                slotChords[0] *= -400;
-                slotChords[1] *= -400;
+                slotChords[0] *= -1000/9;
+                slotChords[1] *= -1000/9;
 
                 slot.style.marginLeft = slotChords[0] + "px";
                 slot.style.marginTop = slotChords[1] + "px";
@@ -122,8 +122,8 @@ function roll(slotId) {
         } else if (slotId === 0) {
             slotIndex1 = numbers[Math.floor(Math.random() * (numbers.length - 1)) + 1];
             let slotChords = chords(slotIndex1);
-            slotChords[0] *= -400;
-            slotChords[1] *= -400;
+            slotChords[0] *= -1000/9;
+            slotChords[1] *= -1000/9;
 
             slot.style.marginLeft = slotChords[0] + "px";
             slot.style.marginTop = slotChords[1] + "px";
@@ -134,8 +134,8 @@ function roll(slotId) {
             }
 
             let slotChords = chords(slotIndex2);
-            slotChords[0] *= -400;
-            slotChords[1] *= -400;
+            slotChords[0] *= -1000/9;
+            slotChords[1] *= -1000/9;
 
             slot.style.marginLeft = slotChords[0] + "px";
             slot.style.marginTop = slotChords[1] + "px";
@@ -146,8 +146,8 @@ function roll(slotId) {
             }
 
             let slotChords = chords(slotIndex3);
-            slotChords[0] *= -400;
-            slotChords[1] *= -400;
+            slotChords[0] *= -1000/9;
+            slotChords[1] *= -1000/9;
 
             slot.style.marginLeft = slotChords[0] + "px";
             slot.style.marginTop = slotChords[1] + "px";

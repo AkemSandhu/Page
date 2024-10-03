@@ -26,13 +26,13 @@ nav ul li {
     margin: 0 15px;
 }
 
-nav ul li a {
+a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-nav ul li a:hover {
+a:hover {
     text-decoration: underline;
     color: #f9c74f; /* Gold on hover */
 }

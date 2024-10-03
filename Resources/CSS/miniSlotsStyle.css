@@ -32,9 +32,10 @@ body {
 }
 
 .image {
-  width: 400px; /* Adjusted for scaling */
-  height: 400px; /* Adjusted for scaling */
+  width: 333.33333333333px; /* Adjusted for scaling */
+  height: 333.33333333333px; /* Adjusted for scaling */
   transition: transform 0.5s ease; /* Smooth transition for slot spinning */
+  
 }
 
 .spin-button {

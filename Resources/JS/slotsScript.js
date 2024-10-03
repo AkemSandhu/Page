@@ -2,7 +2,7 @@
 let money = parseInt(localStorage.getItem('userMoney')) || 500; 
 document.getElementById('money').innerHTML = "Money: $" + money;
 let spinning = false;
-const possibleValues = [1, 2, 3, 4, 5, 6, 7];
+const possibleValues = [1, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6,1, 2, 3, 4, 5, 6, 7];
 const slot = [[], [], [], [], []];
 let mult = 1;
 
@@ -42,13 +42,21 @@ function checkMatches(bet) {
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 3; j++) {
             if (slot[i][j] === 7) {
-                sevens *= (sevens + 1);
+                sevens *= 2;
             }
         }
     }
 
     // Highlight sevens
     highlightSevens();
+
+    for(let i = 0; i<3; i++){
+        let row = i;
+        let column = 0;
+        let current = slot[row][column];
+        adjacent(row,column,current);
+    }
+
 
     // Calculate winnings
     mult *= sevens;
@@ -78,3 +86,39 @@ function updateMoneyDisplay() {
     localStorage.setItem('userMoney', money); // Update local storage
     document.getElementById('money').innerHTML = "Money: $" + money;
 }
+function adjacent(row,column,current){
+    //checks for last row
+    if(column!=4){
+        //checks whether or not symbol is on the edge
+        let j = -1;
+        let k = 1;
+        if(row==0){j=0}
+        if(row==2){k=0}
+       
+        //checks for adjacent matches
+        for(i = j; i<=k; i++){
+            if(slot[column+1][row+i] == slot[column][row]){
+                adjacent(row+i,column+1,slot[column][row])
+                };
+        }
+    }
+    //getting here means it got to the end succesfully
+    else{
+        //increases score based on how many correct symbols exist
+        multCount = 0
+        for(let i = 0; i<5; i++){
+            for(let j = 0; j < 3; j++){
+                if(slot[i][j]==current){
+                    multCount+=1
+                }
+            }
+        }
+        //increases money
+        mult *= multCount-3
+        //highlights correct symbols
+        document.getElementById('slot1').innerHTML = document.getElementById('slot1').innerHTML.replaceAll(''+current, '<span style="color: red;">'+current+'</span>');
+        document.getElementById('slot2').innerHTML = document.getElementById('slot2').innerHTML.replaceAll(''+current, '<span style="color: red;">'+current+'</span>');
+        document.getElementById('slot3').innerHTML = document.getElementById('slot3').innerHTML.replaceAll(''+current, '<span style="color: red;">'+current+'</span>');
+    }
+}
+
